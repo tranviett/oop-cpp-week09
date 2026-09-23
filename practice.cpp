@@ -406,3 +406,27 @@ void revenue(const Restaurant &r) {
          << fixed << setprecision(0)
          << total << " VND\n";
 }
+void menu() {
+
+    cout << "\n\n";
+    cout << "============================================\n";
+    cout << "       QUAN LY CUA HANG GIAO DO AN\n";
+    cout << "============================================\n";
+
+    cout << "1. Nhap thong tin cua hang\n";
+    cout << "2. Them mon an moi\n";
+    cout << "3. Hien thi danh sach mon an\n";
+    cout << "4. Tim mon an theo ten hoac gia\n";
+    cout << "5. Cap nhat gia / so luong mon an\n";
+    cout << "6. Tao don hang moi\n";
+    cout << "7. Kiem tra mon an co ton tai va du so luong\n";
+    cout << "8. Tinh tong tien don hang\n";
+    cout << "9. Hien thi danh sach don hang\n";
+    cout << "10. Tim don hang theo ma\n";
+    cout << "11. Cap nhat trang thai don hang\n";
+    cout << "12. Thong ke doanh thu\n";
+    cout << "0. Thoat\n";
+
+    cout << "============================================\n";
+    cout << "Lua chon: ";
+}
