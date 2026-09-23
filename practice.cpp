@@ -299,4 +299,36 @@ void checkFood(const Restaurant &r) {
 
     cout << "Khong tim thay mon an!\n";
 }
+double calculateTotal(const Order &o) {
+    return o.food.price * o.quantity;
+}
+void displayOrder(const Restaurant &r) {
+
+    if (r.orderCount == 0) {
+        cout << "Chua co don hang!\n";
+        return;
+    }
+
+    cout << "\n================ CHI TIET DON HANG ================\n";
+
+    for (int i = 0; i < r.orderCount; i++) {
+
+        const Order &o = r.orders[i];
+
+        cout << "\nMa don hang: " << o.id;
+        cout << "\nKhach hang: " << o.customerName;
+        cout << "\nDia chi: " << o.address;
+        cout << "\nMon an: " << o.food.name;
+        cout << "\nDon gia: " << fixed << setprecision(0)
+             << o.food.price;
+        cout << "\nSo luong: " << o.quantity;
+
+        cout << "\nTong tien: "
+             << calculateTotal(o);
+
+        cout << "\nTrang thai: " << o.status;
+
+        cout << "\n--------------------------------------\n";
+    }
+}
 
