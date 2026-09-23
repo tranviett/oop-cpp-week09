@@ -110,3 +110,68 @@ void displayFoods(const Restaurant &r) {
              << endl;
     }
 }
+void searchFood(const Restaurant &r) {
+    if (r.foodCount == 0) {
+        cout << "Chua co mon an!\n";
+        return;
+    }
+
+    int choice;
+
+    cout << "\n===== TIM MON AN =====\n";
+    cout << "1. Tim theo ten\n";
+    cout << "2. Tim theo gia\n";
+    cout << "Lua chon: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        cin.ignore();
+
+        string keyword;
+        cout << "Nhap ten mon can tim: ";
+        getline(cin, keyword);
+
+        bool found = false;
+
+        for (int i = 0; i < r.foodCount; i++) {
+            if (r.foods[i].name.find(keyword) != string::npos) {
+                cout << "\nMa mon: " << r.foods[i].id;
+                cout << "\nTen mon: " << r.foods[i].name;
+                cout << "\nDon gia: " << r.foods[i].price;
+                cout << "\nSo luong: " << r.foods[i].quantity << endl;
+
+                found = true;
+            }
+        }
+
+        if (!found) {
+            cout << "Khong tim thay mon an!\n";
+        }
+    }
+    else if (choice == 2) {
+        double price;
+
+        cout << "Nhap gia can tim: ";
+        cin >> price;
+
+        bool found = false;
+
+        for (int i = 0; i < r.foodCount; i++) {
+            if (r.foods[i].price == price) {
+                cout << "\nMa mon: " << r.foods[i].id;
+                cout << "\nTen mon: " << r.foods[i].name;
+                cout << "\nDon gia: " << r.foods[i].price;
+                cout << "\nSo luong: " << r.foods[i].quantity << endl;
+
+                found = true;
+            }
+        }
+
+        if (!found) {
+            cout << "Khong tim thay mon co gia nay!\n";
+        }
+    }
+    else {
+        cout << "Lua chon khong hop le!\n";
+    }
+}
