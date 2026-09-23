@@ -270,3 +270,33 @@ void createOrder(Restaurant &r) {
 
     cout << "\nTao don hang thanh cong!\n";
 }
+void checkFood(const Restaurant &r) {
+
+    cin.ignore();
+
+    string id;
+
+    cout << "\n===== KIEM TRA MON AN =====\n";
+    cout << "Nhap ma mon: ";
+    getline(cin, id);
+
+    for (int i = 0; i < r.foodCount; i++) {
+
+        if (r.foods[i].id == id) {
+
+            cout << "\nMon an: " << r.foods[i].name << endl;
+            cout << "So luong con lai: "
+                 << r.foods[i].quantity << endl;
+
+            if (r.foods[i].quantity > 0)
+                cout << "Trang thai: CON MON\n";
+            else
+                cout << "Trang thai: HET MON\n";
+
+            return;
+        }
+    }
+
+    cout << "Khong tim thay mon an!\n";
+}
+
