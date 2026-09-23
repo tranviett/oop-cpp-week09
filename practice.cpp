@@ -256,14 +256,10 @@ void createOrder(Restaurant &r) {
         cout << "Con lai: " << r.foods[foodIndex].quantity << endl;
         return;
     }
-
-    // Gan mon an vao don hang
     o.food = r.foods[foodIndex];
 
-    // Tru kho
     r.foods[foodIndex].quantity -= o.quantity;
 
-    // Trang thai ban dau
     o.status = "Cho xu ly";
 
     r.orderCount++;
@@ -388,4 +384,25 @@ void updateOrderStatus(Restaurant &r) {
     }
 
     cout << "Khong tim thay don hang!\n";
+}
+
+void revenue(const Restaurant &r) {
+
+    double total = 0;
+
+    for (int i = 0; i < r.orderCount; i++) {
+
+        // Chi tinh don da giao
+        if (r.orders[i].status == "Da giao") {
+            total += calculateTotal(r.orders[i]);
+        }
+    }
+
+    cout << "\n========== THONG KE DOANH THU ==========\n";
+
+    cout << "So don hang: " << r.orderCount << endl;
+
+    cout << "Doanh thu: "
+         << fixed << setprecision(0)
+         << total << " VND\n";
 }
