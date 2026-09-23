@@ -80,11 +80,6 @@ void addFood(Restaurant &r) {
     cout << "\nThem mon an thanh cong!\n";
 }
 
-
-// =========================
-// 4. HIEN THI DANH SACH MON AN
-// =========================
-
 void displayFoods(const Restaurant &r) {
     cout << "\n================ DANH SACH MON AN ================\n";
 
@@ -174,4 +169,32 @@ void searchFood(const Restaurant &r) {
     else {
         cout << "Lua chon khong hop le!\n";
     }
+}
+void updateFood(Restaurant &r) {
+    cin.ignore();
+
+    string id;
+
+    cout << "\n===== CAP NHAT MON AN =====\n";
+    cout << "Nhap ma mon: ";
+    getline(cin, id);
+
+    for (int i = 0; i < r.foodCount; i++) {
+
+        if (r.foods[i].id == id) {
+
+            cout << "Mon an: " << r.foods[i].name << endl;
+
+            cout << "Gia moi: ";
+            cin >> r.foods[i].price;
+
+            cout << "So luong moi: ";
+            cin >> r.foods[i].quantity;
+
+            cout << "Cap nhat thanh cong!\n";
+            return;
+        }
+    }
+
+    cout << "Khong tim thay mon co ma " << id << "!\n";
 }
