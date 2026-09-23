@@ -331,4 +331,61 @@ void displayOrder(const Restaurant &r) {
         cout << "\n--------------------------------------\n";
     }
 }
+void updateOrderStatus(Restaurant &r) {
 
+    cin.ignore();
+
+    string id;
+
+    cout << "\n===== CAP NHAT TRANG THAI =====\n";
+
+    cout << "Nhap ma don hang: ";
+    getline(cin, id);
+
+    for (int i = 0; i < r.orderCount; i++) {
+
+        if (r.orders[i].id == id) {
+
+            cout << "\nTrang thai hien tai: "
+                 << r.orders[i].status << endl;
+
+            cout << "\n1. Cho xu ly";
+            cout << "\n2. Dang giao";
+            cout << "\n3. Da giao";
+            cout << "\n4. Da huy";
+
+            int choice;
+
+            cout << "\nLua chon: ";
+            cin >> choice;
+
+            switch (choice) {
+
+                case 1:
+                    r.orders[i].status = "Cho xu ly";
+                    break;
+
+                case 2:
+                    r.orders[i].status = "Dang giao";
+                    break;
+
+                case 3:
+                    r.orders[i].status = "Da giao";
+                    break;
+
+                case 4:
+                    r.orders[i].status = "Da huy";
+                    break;
+
+                default:
+                    cout << "Lua chon khong hop le!\n";
+                    return;
+            }
+
+            cout << "Cap nhat thanh cong!\n";
+            return;
+        }
+    }
+
+    cout << "Khong tim thay don hang!\n";
+}
